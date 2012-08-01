@@ -9,25 +9,25 @@ Note:- This app is not from Way2sms Team.
 Installing:
 ===========
 
-*Open your Terminal
+* Open your Terminal
 
-*Fedora / Redhat / CentOS users :- 
+* Fedora / Redhat / CentOS users :- 
 
 		sudo yum install python-mechanize
 
-*Ubuntu / LinuxMint / Debian :-
+* Ubuntu / LinuxMint / Debian :-
 
 		sudo apt-get install python-mechanize
 
-*Common steps :-
+* Common steps :-
 
 		cd ~/Downloads/Py2sms
-                sudo sh	w2sms-install
+		sudo sh w2sms-install
 
 Usage:
 ======
 
-*Open your Terminal 
+* Open your Terminal 
 
 		$ w2sms-login
 
@@ -39,7 +39,7 @@ Enter the Login Details
 Removing:
 =========
 
-*Open your Terminal
+* Open your Terminal
 
 		$w2sms-remove
 
