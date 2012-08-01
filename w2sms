@@ -1,0 +1,65 @@
+#!/usr/bin/python
+
+import mechanize
+import pynotify
+import os
+
+home = os.popen("echo $HOME").read()
+home = home.split('\n')
+hidden = "instantsms"
+act = "sa65sdf656fdfd"
+cat = "Friendship+Day"
+
+br = mechanize.Browser()
+br.addheaders = [('User-agent', 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.1) Gecko/2008071615 Fedora/16.0.1-1.fc9 Firefox/13.0.1')]
+
+def notifi(status,ntmsg):
+	pynotify.init("w2sms")
+        notification=pynotify.Notification (status,ntmsg,"dialog-information")
+        notification.show()
+
+def readfile():
+		
+		try:
+			fcheck = open(home[0]+'/.login','r')
+		except IOError:
+			print "Please run w2sms-login first"
+			notifi("Hint","w2sms-login")
+			exit()
+		
+		global uname,pwd
+		file = open(home[0]+'/.login','r')
+		lines = file.readlines()
+                uname = lines[0].strip()
+                pwd = lines[1].strip()
+	
+readfile()
+
+br.method = "POST"
+
+br.open("http://site2.way2sms.com/Login1.action?username="+uname+"&password="+pwd)
+
+header = br.response().info()
+header = str(header)
+header = header.split("\n")
+
+if header[4] == 'pragma: no-cache':
+	print "Login Failed\nCheck Username & Password"
+	exit()
+else:
+	print "Logged In Successfully"
+
+
+number = raw_input("Enter Receiver's Mobile Number: ")
+msg = list(raw_input("Your Message(130 Characters): "))
+
+initiator = 0
+for i in msg:
+	if i == ' ':
+                msg[initiator] = '+'
+        initiator = initiator + 1
+
+msg = "".join(msg)
+
+br.open("http://site2.way2sms.com/quicksms.action?MobNo="+number+"&textArea="+msg+"&HiddenAction="+hidden+"&Action="+act+"&catnamedis="+cat)
+notifi("Success","SMS Sent !!!")

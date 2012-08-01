@@ -1,0 +1,15 @@
+#!/usr/bin/sh
+
+cp w2sms-login /usr/bin/
+cp w2sms /usr/bin
+cp w2sms-remove /usr/bin
+
+chmod a+x /usr/bin/w2sms-login
+chmod a+x /usr/bin/w2sms
+chmod a+x /usr/bin/w2sms-remove
+
+echo "Installation Successfull"
+
+echo "1. Run 'way2sms-login' only once"
+echo "2. Run 'way2sms'"
+echo "3. Run 'way2sms-remove' to Unistall it"
