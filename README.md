@@ -31,7 +31,7 @@ Usage:
 
 		$ w2sms-login
 
-Enter the Login Details
+* Enter the Login Details
 
 		$ w2sms
 
