@@ -1,5 +1,12 @@
 #!/usr/bin/python
 
+'''
+Author: S. Prasanna Venkadesh (http://prasopensource.wordpress.com)
+Version:- 0.1
+License:- Yet to be Licensed
+
+'''
+
 import mechanize
 import pynotify
 import os
