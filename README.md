@@ -30,6 +30,7 @@ Usage:
 * Open your Terminal 
 
 		$ w2sms-login
+The above command is a one-time command, you need to execute everytime, once you enter Login Credentials it will be saved.
 
 * Enter the Login Details
 
