@@ -10,6 +10,6 @@ chmod a+x /usr/bin/w2sms-remove
 
 echo "Installation Successfull"
 
-echo "1. Run 'way2sms-login' only once"
-echo "2. Run 'way2sms'"
-echo "3. Run 'way2sms-remove' to Unistall it"
+echo "1. Run 'w2sms-login' only once"
+echo "2. Run 'w2sms'"
+echo "3. Run 'w2sms-remove' to Unistall it"
