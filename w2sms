@@ -6,7 +6,7 @@ Version:- 0.1
 License:- GPL v3.0 (Free Software) with CopyLeft
 
 '''
-
+import urllib2
 import mechanize
 import pynotify
 import os
@@ -42,31 +42,35 @@ def readfile():
 	
 readfile()
 
-br.method = "POST"
+try:
+	br.method = "POST"
 
-br.open("http://site2.way2sms.com/Login1.action?username="+uname+"&password="+pwd)
+	br.open("http://site2.way2sms.com/Login1.action?username="+uname+"&password="+pwd)
 
-header = br.response().info()
-header = str(header)
-header = header.split("\n")
+	header = br.response().info()
+	header = str(header)
+	header = header.split("\n")
 
-if header[4] == 'pragma: no-cache':
-	print "Login Failed\nCheck Username & Password"
-	exit()
-else:
-	print "Logged In Successfully"
+	if header[4] == 'pragma: no-cache':
+		print "Login Failed\nCheck Username & Password"
+		exit()
+	else:
+		print "Logged In Successfully"
 
 
-number = raw_input("Enter Receiver's Mobile Number: ")
-msg = list(raw_input("Your Message(130 Characters): "))
+	number = raw_input("Enter Receiver's Mobile Number: ")
+	msg = list(raw_input("Your Message(130 Characters): "))
 
-initiator = 0
-for i in msg:
-	if i == ' ':
-                msg[initiator] = '+'
-        initiator = initiator + 1
+	initiator = 0
+	for i in msg:
+		if i == ' ':
+                	msg[initiator] = '+'
+	        initiator = initiator + 1
 
-msg = "".join(msg)
+	msg = "".join(msg)
 
-br.open("http://site2.way2sms.com/quicksms.action?MobNo="+number+"&textArea="+msg+"&HiddenAction="+hidden+"&Action="+act+"&catnamedis="+cat)
-notifi("Success","SMS Sent !!!")
+	br.open("http://site2.way2sms.com/quicksms.action?MobNo="+number+"&textArea="+msg+"&HiddenAction="+hidden+"&Action="+act+"&catnamedis="+cat)
+	notifi("Success","SMS Sent !!!")
+
+except urllib2.URLError:
+	print "\n\t\tCheck your Internet Connection\n"
