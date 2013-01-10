@@ -1,0 +1,5 @@
+#!/usr/bin/sh
+
+rm ~/.login
+
+echo "Your Username and password is removed, Run w2sms-login to login again"

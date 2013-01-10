@@ -45,4 +45,14 @@ Removing:
 		$w2sms-remove
 
 
-More details will be updated soon.
+Updating:
+=========
+
+* Open your Terminal
+
+		$git clone git@github.com:PrasannaVenkadesh/Py2SMS.git
+		$cd Py2SMS
+		$w2sms-remove
+		$./w2sms-install
+
+Obviously this is not the better way to update, I will write a shell script or python script for that.
