@@ -15,10 +15,11 @@ home = os.popen("echo $HOME").read()
 home = home.split('\n')
 hidden = "instantsms"
 act = "sa65sdf656fdfd"
-cat = "Friendship+Day"
+cat = "Lohri"
+token=0
 
 br = mechanize.Browser()
-br.addheaders = [('User-agent', 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.1) Gecko/2008071615 Fedora/16.0.1-1.fc9 Firefox/13.0.1')]
+#br.addheaders = [('User-agent', 'Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.1) Gecko/2008071615 Fedora/16.0.1-1.fc9 Firefox/17.0.1')]
 
 def notifi(status,ntmsg):
 	pynotify.init("w2sms")
@@ -45,7 +46,16 @@ readfile()
 try:
 	br.method = "POST"
 
+	print "test"
+
 	br.open("http://site2.way2sms.com/Login1.action?username="+uname+"&password="+pwd)
+	token = str(br.geturl())
+	print token
+	begin = token.index('?id=') + 4
+	end = len(token)
+	token = token[begin:end]
+
+	print token
 
 	header = br.response().info()
 	header = str(header)
@@ -69,7 +79,7 @@ try:
 
 	msg = "".join(msg)
 
-	br.open("http://site2.way2sms.com/quicksms.action?MobNo="+number+"&textArea="+msg+"&HiddenAction="+hidden+"&Action="+act+"&catnamedis="+cat)
+	br.open("http://site2.way2sms.com/quicksms.action?MobNo="+number+"&textArea="+msg+"&HiddenAction="+hidden+"&Action="+act+"&catnamedis="+cat+"&Token="+token)
 	notifi("Success","SMS Sent !!!")
 
 except urllib2.URLError:
