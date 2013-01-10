@@ -16,6 +16,7 @@ home = home.split('\n')
 hidden = "instantsms"
 act = "sa65sdf656fdfd"
 cat = "Lohri"
+choice = 'y'
 token=0
 
 br = mechanize.Browser()
@@ -61,21 +62,29 @@ try:
 		exit()
 	else:
 		print "Logged In Successfully"
+	
 
+	while (choice=='y'):
 
-	number = raw_input("Enter Receiver's Mobile Number: ")
-	msg = list(raw_input("Your Message(130 Characters): "))
+		number = raw_input("Enter Receiver's Mobile Number: ")
+		msg = list(raw_input("Your Message(130 Characters): "))
 
-	initiator = 0
-	for i in msg:
-		if i == ' ':
-                	msg[initiator] = '+'
-	        initiator = initiator + 1
+		initiator = 0
+		for i in msg:
+			if i == ' ':
+	                	msg[initiator] = '+'
+		        initiator = initiator + 1
 
-	msg = "".join(msg)
+		msg = "".join(msg)
 
-	br.open("http://site2.way2sms.com/quicksms.action?MobNo="+number+"&textArea="+msg+"&HiddenAction="+hidden+"&Action="+act+"&catnamedis="+cat+"&Token="+token)
-	notifi("Success","SMS Sent !!!")
+		br.open("http://site2.way2sms.com/quicksms.action?MobNo="+number+"&textArea="+msg+"&HiddenAction="+hidden+"&Action="+act+"&catnamedis="+cat+"&Token="+token)
+		notifi("Success","SMS Sent !!!")
+
+		choice = raw_input("Send another SMS? (y/n)")
+
+	br.open("http://site2.way2sms.com/LogOut")
+	notifi("Bye Bye","Logged Out of Way2sms")
 
 except urllib2.URLError:
 	print "\n\t\tCheck your Internet Connection\n"
+
