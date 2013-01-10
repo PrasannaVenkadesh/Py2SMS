@@ -46,16 +46,11 @@ readfile()
 try:
 	br.method = "POST"
 
-	print "test"
-
 	br.open("http://site2.way2sms.com/Login1.action?username="+uname+"&password="+pwd)
 	token = str(br.geturl())
-	print token
 	begin = token.index('?id=') + 4
 	end = len(token)
 	token = token[begin:end]
-
-	print token
 
 	header = br.response().info()
 	header = str(header)
