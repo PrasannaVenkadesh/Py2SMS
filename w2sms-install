@@ -3,13 +3,16 @@
 cp w2sms-login /usr/bin/
 cp w2sms /usr/bin
 cp w2sms-remove /usr/bin
+cp w2sms-logout /usr/bin
 
 chmod a+x /usr/bin/w2sms-login
 chmod a+x /usr/bin/w2sms
 chmod a+x /usr/bin/w2sms-remove
+chmod a+x /usr/bin/w2sms-logout
 
 echo "Installation Successfull"
 
 echo "1. Run 'w2sms-login' only once"
 echo "2. Run 'w2sms'"
-echo "3. Run 'w2sms-remove' to Unistall it"
+echo "3. Run 'w2sms-logout' to allow other users to login"
+echo "4. Run 'w2sms-remove' to Unistall it"
