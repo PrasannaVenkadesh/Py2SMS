@@ -32,6 +32,12 @@ Usage:
 		$ w2sms-login
 The above command is a one-time command, you do not need to execute this everytime, once you enter Login Credentials it will be saved.
 
+* You can find a variable named 'act' in the file 'w2sms', this value changes according to every user, In order for the script to work for you, you have to find the action value for your account in way2sms.com, You have to find it by inspecting element in Browser to find that and open the file and paste the value in the code, save it and then proceed below.
+
+		$ sudo gedit /usr/bin/w2sms
+	
+	Code will be opened in text editor, now paste the value of action in between the double qoutes to the variable named "act"
+
 * Enter the Login Details
 
 		$ w2sms

@@ -14,7 +14,7 @@ import os
 home = os.popen("echo $HOME").read()
 home = home.split('\n')
 hidden = "instantsms"
-act = "sa65sdf656fdfd"
+act = ""
 cat = "Lohri"
 choice = 'y'
 token=0
@@ -45,6 +45,11 @@ def readfile():
 readfile()
 
 try:
+
+	if act == "":
+		print "Read the 'Usage' part of 'README.md' file first"
+		exit()
+
 	br.method = "POST"
 
 	br.open("http://site2.way2sms.com/Login1.action?username="+uname+"&password="+pwd)
