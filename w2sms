@@ -15,7 +15,7 @@ home = os.popen("echo $HOME").read()
 home = home.split('\n')
 hidden = "instantsms"
 act = "sa65sdf656fdfd"
-cat = "Lohri"
+cat = "Birthday"
 choice = 'y'
 token=0
 
@@ -77,7 +77,7 @@ try:
 
 		msg = "".join(msg)
 
-		br.open("http://site2.way2sms.com/quicksms.action?MobNo="+number+"&textArea="+msg+"&HiddenAction="+hidden+"&expensive="+act+"&catnamedis="+cat+"&embassy="+token)
+		br.open("http://site2.way2sms.com/sndqs.action?MobNo="+number+"&textArea="+msg+"&HiddenAction="+hidden+"&expensive="+act+"&catnamedis="+cat+"&embassy="+token)
 		notifi("Success","SMS Sent !!!")
 
 		choice = raw_input("Send another SMS? (y/n)")
