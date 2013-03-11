@@ -1,3 +1,5 @@
+Update: This script is outdated, may not work. Also am not in a plan to continue to this now. May sometime later
+
 Py2sms is an CUI based Terminal App using which you can send SMS from your Terminal using your www.way2sms.com account.
 So You need to create an account in www.way2sms.com before using this app.
 
